@@ -1,0 +1,455 @@
+
+
+<!DOCTYPE html>
+
+<html lang="tr">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>YILHAM GRUP | Gayrimenkul ve Otomotiv</title>
+
+<style>
+
+*{box-sizing:border-box}
+
+body{margin:0;font-family:Arial,sans-serif;background:#f4f5f8;color:#172033}
+
+header{background:#101b2c;color:white;padding:20px 6%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
+
+.logo{font-size:26px;font-weight:900;letter-spacing:2px}
+
+.logo span{color:#d6aa55}
+
+nav{display:flex;gap:17px;flex-wrap:wrap}
+
+nav a{color:white;text-decoration:none;font-size:14px}
+
+.hero{background:linear-gradient(130deg,#101b2c,#304763);padding:65px 18px;text-align:center;color:white}
+
+.hero h1{font-size:36px;margin:0 0 15px}
+
+.hero p{line-height:1.8;color:#dce3ed}
+
+button{background:#d6aa55;color:#101b2c;border:0;border-radius:7px;padding:13px 20px;font-weight:bold;cursor:pointer}
+
+.container{max-width:1150px;margin:auto;padding:35px 18px}
+
+h2{margin-top:0}
+
+.filters{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;background:white;padding:18px;border-radius:12px;margin-bottom:25px}
+
+input,select,textarea{width:100%;padding:13px;border:1px solid #dce1e8;border-radius:7px;font-size:14px}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+
+.card{background:white;border-radius:12px;overflow:hidden;box-shadow:0 3px 15px #0001}
+
+.photo{height:170px;background:#e4e8ee;display:flex;align-items:center;justify-content:center;font-size:55px}
+
+.photo img{width:100%;height:100%;object-fit:cover}
+
+.content{padding:18px}
+
+.tag{font-size:12px;background:#f4ead8;padding:6px 9px;border-radius:5px}
+
+.price{font-size:22px;font-weight:bold;color:#b18434;margin:15px 0}
+
+.info{font-size:13px;color:#687386;line-height:1.7}
+
+.contact{width:100%;margin-top:12px}
+
+.empty{background:white;padding:30px;text-align:center;border-radius:10px;grid-column:1/-1}
+
+.admin{background:#101b2c;color:white;padding:25px;border-radius:12px;margin-top:45px}
+
+.admin h2{color:#d6aa55}
+
+.form{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+
+.admin textarea{min-height:75px}
+
+.admin button{margin-top:15px}
+
+.about{line-height:1.9;color:#586477}
+
+footer{background:#101b2c;color:white;text-align:center;padding:35px 15px;line-height:2}
+
+footer span{color:#d6aa55}
+
+.whatsapp{position:fixed;bottom:18px;right:15px;background:#168b51;color:white;text-decoration:none;padding:15px 18px;border-radius:30px;font-weight:bold}
+
+@media(max-width:600px){
+
+header{justify-content:center;text-align:center}
+
+nav{justify-content:center}
+
+.hero h1{font-size:28px}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">YILHAM <span>GRUP</span></div>
+
+<nav>
+
+<a href="#anasayfa">Ana Sayfa</a>
+
+<a href="#ilanlar">İlanlar</a>
+
+<a href="#hakkimizda">Hakkımızda</a>
+
+<a href="#yonetim">Yönetim</a>
+
+<a href="#iletisim">İletişim</a>
+
+</nav>
+
+</header>
+
+<section class="hero" id="anasayfa">
+
+<h1>YILHAM GRUP'a Hoş Geldiniz</h1>
+
+<p>Gayrimenkul ve otomotiv dünyasında doğru fırsatlar.<br>Güvenilir ilanlar, kolay iletişim ve profesyonel hizmet.</p>
+
+<a href="#ilanlar"><button>İlanları İncele</button></a>
+
+</section>
+
+<main class="container">
+
+<section id="ilanlar">
+
+<h2>İlanlarımız</h2>
+
+<div class="filters">
+
+<input id="search" placeholder="İlan veya konum ara">
+
+<select id="category">
+
+<option value="">Bütün kategoriler</option>
+
+<option value="Ev">Gayrimenkul</option>
+
+<option value="Araba">Otomobil</option>
+
+</select>
+
+<select id="status">
+
+<option value="">Satılık / Kiralık</option>
+
+<option value="Satılık">Satılık</option>
+
+<option value="Kiralık">Kiralık</option>
+
+</select>
+
+<select id="sorting">
+
+<option value="new">En yeni</option>
+
+<option value="low">En düşük fiyat</option>
+
+<option value="high">En yüksek fiyat</option>
+
+</select>
+
+</div>
+
+<div class="cards" id="cards"></div>
+
+</section>
+
+<section id="hakkimizda" style="margin-top:55px">
+
+<h2>Hakkımızda</h2>
+
+<p class="about">
+
+YILHAM GRUP, gayrimenkul ve otomotiv alanlarında ilanları
+
+bir araya getiren bir platformdur. Amacımız müşterilerimize
+
+kolay, şeffaf ve güvenilir bir ilan deneyimi sunmaktır.
+
+Doğru fırsatları bulmanız için yanınızdayız.
+
+</p>
+
+</section>
+
+<section class="admin" id="yonetim">
+
+<h2>İlan Yönetim Paneli</h2>
+
+<p style="margin-bottom:20px">Yeni ilan ekleme alanı</p>
+
+<form class="form" id="addForm">
+
+<input id="title" placeholder="İlan başlığı" required>
+
+<select id="newCategory">
+
+<option value="Ev">Gayrimenkul</option>
+
+<option value="Araba">Otomobil</option>
+
+</select>
+
+<select id="newStatus">
+
+<option value="Satılık">Satılık</option>
+
+<option value="Kiralık">Kiralık</option>
+
+</select>
+
+<input id="price" type="number" min="1" placeholder="Fiyat (TL)" required>
+
+<input id="location" placeholder="Şehir / Mahalle" required>
+
+<input id="photo" type="url" placeholder="Fotoğraf bağlantısı (isteğe bağlı)">
+
+<textarea id="description" placeholder="İlan açıklaması"></textarea>
+
+<button type="submit">İlanı Yayınla</button>
+
+</form>
+
+<p style="font-size:12px;color:#cbd3df;margin-top:15px">
+
+Bu sürümde ilanlar kullandığınız tarayıcıda saklanır. Gerçek yönetici girişi ve ortak veritabanı sonraki aşamada kurulacaktır.
+
+</p>
+
+</section>
+
+</main>
+
+<footer id="iletisim">
+
+<h2>YILHAM <span>GRUP</span></h2>
+
+<p>Gayrimenkul & Otomotiv</p>
+
+<p>Telefon: 0541 531 11 16</p>
+
+<p>© 2026 YILHAM GRUP</p>
+
+</footer>
+
+<a class="whatsapp" href="https://wa.me/905415311116" target="_blank">WhatsApp</a>
+
+<script>
+
+let listings=[];
+
+try{
+
+listings=JSON.parse(localStorage.getItem("yilham_ilanlar"))||[];
+
+}catch(e){
+
+listings=[];
+
+}
+
+const cards=document.getElementById("cards");
+
+function save(){
+
+localStorage.setItem("yilham_ilanlar",JSON.stringify(listings));
+
+}
+
+function render(){
+
+const q=document.getElementById("search").value.toLocaleLowerCase("tr-TR");
+
+const category=document.getElementById("category").value;
+
+const status=document.getElementById("status").value;
+
+const sorting=document.getElementById("sorting").value;
+
+let results=listings.filter(item=>{
+
+return (
+
+(item.title+" "+item.location+" "+item.description).toLocaleLowerCase("tr-TR").includes(q)&&
+
+(!category||item.category===category)&&
+
+(!status||item.status===status)
+
+);
+
+});
+
+if(sorting==="low")results.sort((a,b)=>a.price-b.price);
+
+if(sorting==="high")results.sort((a,b)=>b.price-a.price);
+
+cards.replaceChildren();
+
+if(results.length===0){
+
+const empty=document.createElement("div");
+
+empty.className="empty";
+
+empty.textContent="Henüz ilan bulunmuyor. Aramanızı değiştirebilirsiniz.";
+
+cards.appendChild(empty);
+
+return;
+
+}
+
+results.forEach(item=>{
+
+const card=document.createElement("article");
+
+card.className="card";
+
+const photo=document.createElement("div");
+
+photo.className="photo";
+
+if(item.photo){
+
+const img=document.createElement("img");
+
+img.src=item.photo;
+
+img.alt=item.title;
+
+img.onerror=()=>{
+
+photo.textContent=item.category==="Ev"?"🏠":"🚘";
+
+};
+
+photo.appendChild(img);
+
+}else{
+
+photo.textContent=item.category==="Ev"?"🏠":"🚘";
+
+}
+
+const content=document.createElement("div");
+
+content.className="content";
+
+const title=document.createElement("h3");
+
+title.textContent=item.title;
+
+const tag=document.createElement("span");
+
+tag.className="tag";
+
+tag.textContent=item.status+" | "+item.category;
+
+const price=document.createElement("div");
+
+price.className="price";
+
+price.textContent=item.price.toLocaleString("tr-TR")+" TL";
+
+const info=document.createElement("p");
+
+info.className="info";
+
+info.textContent=item.location+" | "+item.description;
+
+const contact=document.createElement("button");
+
+contact.className="contact";
+
+contact.textContent="Bilgi Al";
+
+contact.onclick=()=>{
+
+const message=encodeURIComponent("Merhaba, "+item.title+" ilanı hakkında bilgi almak istiyorum.");
+
+window.open("https://wa.me/905415311116?text="+message,"_blank");
+
+};
+
+content.append(title,tag,price,info,contact);
+
+card.append(photo,content);
+
+cards.appendChild(card);
+
+});
+
+}
+
+document.getElementById("addForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+const item={
+
+id:Date.now(),
+
+title:document.getElementById("title").value.trim(),
+
+category:document.getElementById("newCategory").value,
+
+status:document.getElementById("newStatus").value,
+
+price:Number(document.getElementById("price").value),
+
+location:document.getElementById("location").value.trim(),
+
+photo:document.getElementById("photo").value.trim(),
+
+description:document.getElementById("description").value.trim()
+
+};
+
+if(!item.title||!item.location||item.price<=0)return;
+
+listings.unshift(item);
+
+save();
+
+render();
+
+this.reset();
+
+alert("İlan başarıyla eklendi.");
+
+});
+
+["search","category","status","sorting"].forEach(id=>{
+
+document.getElementById(id).addEventListener("input",render);
+
+});
+
+render();
+
+</script>
+
+</body>
+
+</html>
